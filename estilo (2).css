@@ -1,0 +1,72 @@
+body {
+    margin: 0; /*Define a área de margem dos quatro lados do elemento.*/
+    height: 100vh; /*Define a altura da área do conteúdo do elemento. */
+    display: flex; /*Define o comportamento do elemento e, relação aos demais. O flex, permite que os elementos sejam organizados depedendo do tamanho da tela.*/
+    align-items: center; /*Alinha todos os elementos no centro.*/
+    justify-content: center; /*Alinha os elementos ao longo do eixo principal.*/
+    background-color: black; /*Define a cor de fundo.*/
+    overflow: hidden; /*Garante que o elemento nâo passe do tamanho determinado.*/
+}
+.container /*Separa a primeira parte da programação. */ { 
+    font-size: 10px; /*Define o tamanho da fonte. */
+    width: 40em; /*Define a largura do elemento. */
+    height: 40em; /*Define a altura do elemento. */
+    position: relative; /*Usado para alterar a posição de um elemento levando em conta seu lugar inicial.*/
+}
+.sun /*Define a programação do Sol */ {
+    position: absolute; /* Posiciona o elmento ao elemento mais próximo dele. */
+    top: 15em; /*Indica o espaço acima do elemento */
+    left: 15em; /*Indica o espaço a esquerda do elemento. */
+    width: 10em; /*Define a largura do elemento. */
+    height: 10em; /*Define a altura do elemento. */
+    background-color: yellow; /*Define a cor de fundo.*/
+    border-radius: 50%; /*Arredonda as bordas do elemento. */
+    box-shadow: 0 0 3 em white; /*Define efeitos de sombra em volta de um elemento. */
+}
+.earth,
+.moon /*Define a programação da Terra e da Lua*/{
+position: absolute; /* Posiciona o elmento ao elemento mais próximo dele. */
+border-style: solid; /*Define uma borda sólida.*/
+border-color: white transparent transparent transparent; /*Utilizada para adicionar u contorno ao elemento.*/
+border-width: 0.1em 0.1em 0 0; /*Define o tamanho da borda.*/
+border-radius: 50%; /*Arredonda as bordas do elemento. */
+}
+.earth /*Define a programação da Terra.*/ {
+    top: 5em; /*Indica o espaço acima do elemento */
+    left: 5em; /*Indica o espaço a esquerda do elemento. */
+    width: 30em; /*Define a largura do elemento. */
+    height: 30em; /*Define a altura do elemento. */
+    animation: orbit 36.5s linear infinite; /*Define a animação do elemento e seus movimentos.*/
+}
+.moon /*Define a programação da Lua*/ {
+    top: 0; /*Indica o espaço acima do elemento */
+    right: 0; /*Indica o espaço a esquerda do elemento. */
+    width: 8em; /*Define a largura do elemento. */
+    height: 8em; /*Define a altura do elemento. */
+    animation: orbit 2.7s linear infinite; /*Define a animação do elemento e seus movimentos.*/
+}
+.earth::before, 
+.moon::before /*Indica a inserção de um pseudo-elemento antes da Terra e Lua*/{
+    content: ""; /*Define o conteúdo de um elemento.*/
+    position: absolute; /* Posiciona o elmento ao elemento mais próximo dele. */
+    border-radius: 50%; /*Arredonda as bordas do elemento. */
+}
+.earth::before /*Indica a inserção de um pseudo-elemento antes da Terra*/ {
+    top: 2.8em; /*Indica o espaço acima do elemento */
+    right: 2.8em; /*Indica o espaço a esquerda do elemento. */
+    width: 3em; /*Define a largura do elemento. */
+    height: 3em; /*Define a altura do elemento. */
+    background-color: aqua; /*Define a cor de fundo.*/
+}
+.moon::before /*Indica a inserção de um pseudo-elemento antes da Lua*/ {
+    top: 0.8em; /*Indica o espaço acima do elemento */
+    right: 0.2em; /*Indica o espaço a esquerda do elemento. */
+    width: 1.2em; /*Define a largura do elemento. */
+    height: 1.2em; /*Define a altura do elemento. */
+    background-color:silver; /*Define a cor de fundo.*/
+}
+@keyframes orbit /*Permite criar sequências de animação*/ {
+    to {
+        transform:rotate(360deg); /*Define o movimento traçado pelo elemento.*/
+    }
+}
